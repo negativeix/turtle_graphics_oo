@@ -1,16 +1,14 @@
 import turtle
 import random
 class draw:
-    def __init__(self):
-        self.num_sides = random.randint(3, 5)
+    def __init__(self,num_sides):
+        self.num_sides = num_sides
         self.size = random.randint(50, 150)
         self.orientation = random.randint(0, 90)
         self.location = [random.randint(-300, 300), random.randint(-200, 200)]
         self.color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
         self.border_size = random.randint(1, 10)
         self.reduction_ratio = 0.618
-
-
 
     def draw_polygon(self):
         turtle.goto(self.location[0], self.location[1])
@@ -41,9 +39,9 @@ class draw:
             self.reset()
 
 # class tri(draw):
-#     def __init__(self,numside=3):
+#     def __init__(self):
 #         # Call the __init__ method of the parent class, and specify that the number of sides is 3 for a triangle
-#         draw.__init__(self,numside)
+#         super().__init__(3)
 
 turtle.speed(0)
 turtle.bgcolor('black')
@@ -51,73 +49,45 @@ turtle.tracer(0)
 turtle.colormode(255)
 turtle.penup()
 
-#choice 5
-# for i in range(20):
-#     x = draw(3)
-#     x.draw_polygon()
-#     x.draw_nested_polygons()
+n = int(input("Enter choice 1-9\n"))
 
-#choice 6
-# for i in range(20):
-#     x = draw(4)
-#     x.draw_polygon()
-#     x.draw_nested_polygons()
-
-#choice 7
-# for i in range(20):
-#     x = draw(5)
-#     x.draw_polygon()
-#     x.draw_nested_polygons()
-
-#choice 8
-# for i in range(10):
-#         x = draw()
-#         y = draw()
-#         z = draw()
-#         x.draw_polygon()
-#         x.draw_nested_polygons()
-#         y.draw_polygon()
-#         y.draw_nested_polygons()
-#         z.draw_polygon()
-#         z.draw_nested_polygons()
-#
-#         turtle.update()
-
-#choice 9
-for i in range(5):
-        x = draw()
-        y = draw()
-        z = draw()
+if n>=1 and n<=3: # choice 1-3
+    for i in range(20):
+        x = draw(n+2)
         x.draw_polygon()
-        y.draw_polygon()
-        y.draw_nested_polygons()
-        z.draw_polygon()
-        z.draw_nested_polygons()
+        x.reset()
+        turtle.update()
+
+if n==4: #choice 4
+    for i in range(20):
+            x = draw(random.randint(3, 5))
+            x.draw_polygon()
+            x.reset()
+            turtle.update()
+
+if n >=5 and n<=7: #choice 5-7
+    for i in range(20):
+        x = draw(n-2)
+        x.draw_polygon()
+        x.draw_nested_polygons()
 
 
+if n==8: #choice 8
+    for i in range(20):
+            x = draw(random.randint(3, 5))
+            x.draw_polygon()
+            x.draw_nested_polygons()
+            turtle.update()
 
-
-#choice 1-3
-# for i in range(20):
-#     x = draw(3)
-#     x.draw_polygon()
-#     x.reset()
-#     turtle.update()
-
-#choice 4
-# for i in range(10):
-#         x = draw(3)
-#         y = draw(4)
-#         z = draw(5)
-#         x.draw_polygon()
-#         y.draw_polygon()
-#         z.draw_polygon()
-#         x.reset()
-#         y.reset()
-#         z.reset()
-#         turtle.update()
-
-
+if n==9: #choice 9
+    for i in range(5):
+            x = draw(4)
+            y = draw(3)
+            z = draw(random.randint(3, 5))
+            x.draw_polygon()
+            y.draw_polygon()
+            z.draw_polygon()
+            z.draw_nested_polygons()
 
 turtle.done()
 
